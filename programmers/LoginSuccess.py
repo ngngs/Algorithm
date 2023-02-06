@@ -4,16 +4,12 @@ def solution(id_pw, db):
     
     try_id, try_pwd = id_pw
     
-    if db_dict.get(try_id) == None :
-        answer = "fail" 
-        return answer
+    db_pw = db_dict.get(try_id)
     
-    if db_dict.get(try_id) != try_pwd :
-        answer = "wrong pw" 
-        return answer
-    else :
-        answer = "login"
-        return answer
+    if db_pw :
+        return "login" if db_pw == try_pwd else "wrong pw"
+
+    return "fail"
     
 # def solution(id_pw, db):
 #     try_id, try_pwd = id_pw
